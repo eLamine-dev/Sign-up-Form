@@ -5,7 +5,7 @@ body {
       Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
    height: 100vh;
    width: min(110rem, 100%);
-   background: #081f37;
+   background: #01131f;
    justify-content: start;
 }
 
@@ -62,8 +62,11 @@ body {
 
 label {
    color: aqua;
-   font-size: 1.5rem;
+   font-size: 1.2rem;
    display: block;
+   text-transform: uppercase;
+   font-weight: lighter;
+   padding-left: 12px;
 }
 
 input {
@@ -71,8 +74,9 @@ input {
    border-radius: 12px;
    width: 95%;
    height: 48px;
-   border: aqua 3px solid;
-   background-color: #1d3752;
-   font-size: xx-large;
+   border: #5baeeb 2px solid;
+   background-color: #082335;
+
+   font-size: 1.2rem;
    padding-left: 12px;
 }
