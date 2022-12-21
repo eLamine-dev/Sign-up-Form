@@ -22,7 +22,8 @@ body {
    align-items: center;
    margin-top: 30%;
    width: 100%;
-   background-color: #6b6aaf8e;
+   background-color: #5baeeb;
+   opacity: 0.5;
    font-size: 3rem;
    font-weight: bold;
    color: rgb(0, 0, 0);
@@ -31,19 +32,21 @@ body {
 }
 
 .main {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
    width: 60%;
    height: 100vh;
-   padding: 10% 3%;
+   /* padding: 5% 3%; */
 }
 
 .welcome-text {
-   color: aqua;
+   color: #5baeeb;
    font-size: 1.5rem;
 }
 
 .form {
    width: 100%;
-   margin-top: 8%;
    display: flex;
    justify-content: space-between;
    column-gap: 32px;
@@ -61,7 +64,7 @@ body {
 }
 
 label {
-   color: aqua;
+   color: #5baeeb;
    font-size: 1.2rem;
    display: block;
    text-transform: uppercase;
@@ -73,10 +76,46 @@ input {
    margin-top: 4px;
    border-radius: 12px;
    width: 95%;
-   height: 48px;
+   height: 3rem;
    border: #5baeeb 2px solid;
    background-color: #082335;
-
    font-size: 1.2rem;
    padding-left: 12px;
+}
+
+.submit-btn {
+   background: #ff4742;
+   border: 1px solid #ff4742;
+   border-radius: 6px;
+   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+   color: #ffffff;
+   cursor: pointer;
+   display: inline-block;
+   font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+   font-size: 16px;
+   font-weight: 800;
+   line-height: 16px;
+   min-height: 40px;
+   outline: 0;
+   padding: 12px 14px;
+   text-align: center;
+   text-rendering: geometricprecision;
+   text-transform: none;
+   user-select: none;
+   -webkit-user-select: none;
+   touch-action: manipulation;
+   vertical-align: middle;
+   width: 45%;
+   margin-top: 5%;
+}
+
+.submit-btn:hover,
+.submit-btn:active {
+   background-color: initial;
+   background-position: 0 0;
+   color: #ff4742;
+}
+
+.submit-btn:active {
+   opacity: 0.5;
 }
