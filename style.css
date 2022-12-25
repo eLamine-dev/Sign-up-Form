@@ -46,21 +46,15 @@ body {
    font-size: 1.3vw;
 }
 
-.form {
-   width: 100%;
+.inputs-row {
    display: flex;
    justify-content: space-between;
-   column-gap: 32px;
    flex-wrap: wrap;
 }
 
-.inputs-column {
-   width: 40%;
-   min-width: 300px;
-   flex-grow: 1;
-}
-
 .input-div {
+   flex: 1;
+   min-width: 300px;
    margin-top: 12px;
 }
 
