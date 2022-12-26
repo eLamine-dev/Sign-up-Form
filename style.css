@@ -1,12 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
+:root {
+   --dark-blue: #000814;
+   --medium-blue: rgba(00, 35, 66, 0.2);
+   --light-blue: #219ebc;
+   --lighter-blue: #8ecae6;
+   --red-alerts: #ff4742;
+}
+
 body {
    display: flex;
    flex-direction: row;
    font-family: "Rubik", sans-serif;
    height: 100vh;
    width: 100vw;
-   background: #000814;
+   background: var(--dark-blue);
    justify-content: start;
 }
 
@@ -23,7 +31,7 @@ body {
    align-items: center;
    margin-top: 30%;
    width: 100%;
-   background-color: #5baeeb;
+   background-color: var(--light-blue);
    opacity: 0.5;
    font-size: 3rem;
    font-weight: bold;
@@ -43,7 +51,7 @@ body {
 }
 
 .welcome-text {
-   color: #5baeeb;
+   color: var(--lighter-blue);
    font-size: max(1.4vw, 1.3rem);
    font-weight: 500;
 }
@@ -53,7 +61,7 @@ em {
 }
 
 .log-in {
-   color: #5baeeb;
+   color: var(--lighter-blue);
    font-size: max(1vw, 1.1rem);
 }
 
@@ -61,8 +69,8 @@ form {
    border: none;
    padding: 2vw;
    border-radius: 12px;
-   background-color: #001d3d4f;
-   box-shadow: 0 0 10px #686cac;
+   background-color: var(--medium-blue);
+   box-shadow: 0 0 10px var(--light-blue);
 }
 
 .inputs-row {
@@ -79,27 +87,27 @@ form {
 }
 
 label {
-   color: #5baeeb;
-   font-size: 0.9rem;
+   color: var(--lighter-blue);
+   font-size: 0.8rem;
    display: block;
    text-transform: uppercase;
-   font-weight: lighter;
+   font-weight: 300;
    padding-left: 12px;
 }
 
 input {
-   margin-top: 4px;
+   margin: 3px 0 3px 0;
    border-radius: 8px;
    width: 100%;
    height: 2.2rem;
    /* border: #5baeeb 1px solid; */
    border: none;
-   background-color: #000814;
-   font-size: 1.2rem;
+   background-color: var(--dark-blue);
+   font-size: 1.1rem;
    padding-left: 12px;
-   box-shadow: inset 0 0 7px #357ecc;
+   box-shadow: inset 0 0 8px var(--lighter-blue);
    outline: none;
-   color: aqua;
+   color: var(--lighter-blue);
    font-size: rem;
    font-family: "Rubik", sans-serif;
    font-weight: lighter;
@@ -110,12 +118,18 @@ input:focus {
 }
 
 input:valid {
-   box-shadow: inset 0 0 10px #357ecc;
+   box-shadow: inset 0 0 10px var(--light-blue);
+}
+
+.error-msg {
+   color: var(--red-alerts);
+   padding-left: 12px;
+   font-size: small;
 }
 
 .submit-btn {
    background: initial;
-   border: 1px solid #ff4742;
+   border: 1px solid var(--red-alerts);
    border-radius: 6px;
    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
    color: #ff4742;
@@ -148,4 +162,8 @@ input:valid {
 
 .submit-btn:active {
    opacity: 0.5;
+}
+
+a {
+   color: var(--red-alerts);
 }
