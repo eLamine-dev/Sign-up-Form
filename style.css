@@ -37,7 +37,7 @@ body {
    font-size: 3rem;
    font-weight: bold;
    color: rgb(0, 0, 0);
-   height: max(6vw, 5rem);
+   height: max(5vw, 5rem);
    text-align: center;
 }
 
@@ -85,7 +85,7 @@ form {
 .input-div {
    flex: 1;
    min-width: 300px;
-   margin-top: 12px;
+   margin-top: 8px;
 }
 
 label {
@@ -174,12 +174,13 @@ a {
       flex-direction: column;
    }
    #hero {
+      max-height: 30vh;
       width: 100vw;
-      height: 25vh;
    }
 
    .main {
       width: 100vw;
-      height: 75vh;
+      padding: 2vw;
+      gap: 2vw;
    }
 }
