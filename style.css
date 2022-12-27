@@ -3,7 +3,7 @@
 :root {
    --dark-blue: #000814;
    --medium-blue: rgba(00, 35, 66, 0.2);
-   --light-blue: #0096c7;
+   --light-blue: #6272ff;
    --lighter-blue: #8ecae6;
    --red-alerts: #ff4742;
 }
@@ -126,6 +126,7 @@ input {
    color: var(--red-alerts);
    padding-left: 12px;
    font-size: small;
+   visibility: hidden;
 }
 
 .submit-btn {
