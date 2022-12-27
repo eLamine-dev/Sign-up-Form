@@ -24,6 +24,7 @@ passConfirm.addEventListener("input", validate);
 passConfirm.addEventListener("input", (e) => {
    if (passConfirm.value === password.value) {
       e.target.classList.add("valid");
+      d;
       e.target.classList.remove("invalid");
       e.target.nextElementSibling.style.visibility = "hidden";
    } else {

@@ -127,6 +127,7 @@ input {
    padding-left: 12px;
    font-size: small;
    visibility: hidden;
+   visibility: visible;
 }
 
 .submit-btn {
