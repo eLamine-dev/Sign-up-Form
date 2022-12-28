@@ -36,12 +36,16 @@ body {
 
    font-size: 3rem;
    font-weight: bold;
-   height: max(7vw, 5rem);
+   height: max(8vw, 7rem);
    text-align: center;
 }
 
+.logo-div a {
+   height: 70%;
+}
+
 #logo {
-   height: 80%;
+   height: 100%;
 }
 
 .main {
