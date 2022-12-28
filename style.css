@@ -3,7 +3,7 @@
 :root {
    --dark-blue: #000814;
    --medium-blue: rgba(00, 35, 66, 0.2);
-   --light-blue: #6272ff;
+   --light-blue: #626cff;
    --lighter-blue: #8ecae6;
    --red-alerts: #ff4742;
 }
@@ -27,18 +27,21 @@ body {
    flex-direction: column;
    justify-content: center;
 }
-.logo {
+.logo-div {
    display: flex;
    justify-content: center;
    align-items: center;
    width: 100%;
-   background-color: var(--light-blue);
-   opacity: 0.5;
+   background-color: rgba(0, 0, 255, 0.2);
+
    font-size: 3rem;
    font-weight: bold;
-   color: rgb(0, 0, 0);
-   height: max(5vw, 5rem);
+   height: max(7vw, 5rem);
    text-align: center;
+}
+
+#logo {
+   height: 80%;
 }
 
 .main {
@@ -187,5 +190,12 @@ a {
       width: 100vw;
       padding: 2vw;
       gap: 2vw;
+   }
+}
+
+@media screen and (max-width: 650px) {
+   .submit-btn {
+      width: 100%;
+      margin: 5% 0 0 0;
    }
 }
