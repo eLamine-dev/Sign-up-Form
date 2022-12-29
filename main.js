@@ -18,6 +18,7 @@ let reg = {
 };
 
 form.addEventListener("submit", validateSubmit);
+password.addEventListener("input", checkPasswordConfirm);
 inputs.forEach((input) => {
    input.addEventListener("input", validate);
    input.addEventListener("focus", showErrorMsg);
@@ -26,7 +27,6 @@ inputs.forEach((input) => {
 });
 
 function validate(e) {
-   e.preventDefault();
    if (e.target.name == "confirm-pass") {
       if (passConfirm.value === password.value || e.target.value == "") {
          e.target.classList.add("valid");
@@ -66,5 +66,30 @@ function validateSubmit(event) {
       )
    ) {
       event.preventDefault();
+      alertOnSubmit();
+   }
+}
+
+function alertOnSubmit() {
+   inputs.forEach((input) => {
+      if (input.classList.contains("invalid") || input.value == "") {
+         input.classList.add("invalid");
+         input.classList.remove("valid");
+         input.nextElementSibling.style.visibility = "visible";
+      }
+   });
+}
+
+function checkPasswordConfirm() {
+   if (passConfirm.value !== "") {
+      if (passConfirm.value !== password.value) {
+         passConfirm.classList.add("invalid");
+         passConfirm.classList.remove("valid");
+         passConfirm.nextElementSibling.style.visibility = "visible";
+      } else if (passConfirm.value === password.value) {
+         passConfirm.classList.remove("invalid");
+         passConfirm.classList.add("valid");
+         passConfirm.nextElementSibling.style.visibility = "hidden";
+      }
    }
 }
