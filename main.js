@@ -73,8 +73,6 @@ function validateSubmit(event) {
 function alertOnSubmit() {
    inputs.forEach((input) => {
       if (input.classList.contains("invalid") || input.value == "") {
-         input.classList.add("invalid");
-         input.classList.remove("valid");
          input.nextElementSibling.style.visibility = "visible";
       }
    });
