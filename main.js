@@ -17,6 +17,7 @@ let reg = {
    // "confirm-pass": ,
 };
 
+form.addEventListener("submit", validateSubmit);
 inputs.forEach((input) => {
    input.addEventListener("input", validate);
    input.addEventListener("focus", showErrorMsg);
@@ -56,4 +57,14 @@ function showErrorMsg(e) {
 function hideErrorMsg(e) {
    e.target.nextElementSibling.style.visibility = "hidden";
    e.target.style.border = "none";
+}
+
+function validateSubmit(event) {
+   if (
+      Array.from(inputs).some(
+         (input) => input.classList.contains("invalid") || input.value == ""
+      )
+   ) {
+      event.preventDefault();
+   }
 }
