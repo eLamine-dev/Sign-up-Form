@@ -28,7 +28,11 @@ inputs.forEach((input) => {
 
 function validate(e) {
    if (e.target.name == "confirm-pass") {
-      if (passConfirm.value === password.value || e.target.value == "") {
+      if (
+         (passConfirm.value === password.value &&
+            reg.password.test(passConfirm.value)) ||
+         e.target.value == ""
+      ) {
          e.target.classList.add("valid");
          e.target.classList.remove("invalid");
       } else {
