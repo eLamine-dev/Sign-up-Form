@@ -10,50 +10,32 @@ let inputs = form.querySelectorAll('input');
 let reg = {
    'first-name': `[a-zA-Z]+`,
    'last-name': `[a-zA-Z]+`,
-
-   password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,12}$/,
-   // "confirm-pass": ,
+   password: '(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*',
 };
 
 form.addEventListener('submit', validateSubmit);
 password.addEventListener('input', checkPasswordConfirm);
 inputs.forEach((input) => {
+   input.setAttribute('value', input.value);
    if (reg[input.name]) {
       input.setAttribute('pattern', reg[input.name]);
    }
-   input.addEventListener('input', validate);
-   input.addEventListener('focus', showErrorMsg);
-   input.addEventListener('input', showErrorMsg);
-   input.addEventListener('blur', hideErrorMsg);
+
+   input.addEventListener('input', (ev) => {
+      showHideErrorMsg(ev.target);
+   });
+   input.addEventListener('blur', (ev) => {
+      showHideErrorMsg(ev.target);
+   });
 });
 
-function validate(e) {
-   if (e.target.name == 'confirm-pass') {
-      if (
-         (passConfirm.value === password.value &&
-            reg.password.test(passConfirm.value)) ||
-         e.target.value == ''
-      ) {
-         e.target.classList.add('valid');
-         e.target.classList.remove('invalid');
-      } else {
-         e.target.classList.add('invalid');
-         e.target.classList.remove('valid');
-      }
-   }
-}
-
-function showErrorMsg(e) {
-   if (e.target.checkValidity()) {
-      e.target.nextElementSibling.style.visibility = 'hidden';
+function showHideErrorMsg(target) {
+   target.setAttribute('value', target.value);
+   if (target.checkValidity()) {
+      target.nextElementSibling.style.visibility = 'hidden';
    } else {
-      e.target.nextElementSibling.style.visibility = 'visible';
+      target.nextElementSibling.style.visibility = 'visible';
    }
-}
-
-function hideErrorMsg(e) {
-   e.target.nextElementSibling.style.visibility = 'hidden';
-   e.target.style.border = 'none';
 }
 
 function validateSubmit(event) {
@@ -70,21 +52,19 @@ function validateSubmit(event) {
 function alertOnSubmit() {
    inputs.forEach((input) => {
       if (!input.checkValidity()) {
-         input.nextElementSibling.style.visibility = 'visible';
+         showHideErrorMsg(input);
       }
    });
 }
 
-function checkPasswordConfirm() {
+function checkPasswordConfirm(e) {
    if (passConfirm.value !== '') {
       if (passConfirm.value !== password.value) {
-         passConfirm.classList.add('invalid');
-         passConfirm.classList.remove('valid');
-         passConfirm.nextElementSibling.style.visibility = 'visible';
+         passConfirm.setCustomValidity('Passwords do not match');
+         showHideErrorMsg(e.target);
       } else if (passConfirm.value === password.value) {
-         passConfirm.classList.remove('invalid');
-         passConfirm.classList.add('valid');
-         passConfirm.nextElementSibling.style.visibility = 'hidden';
+         passConfirm.setCustomValidity('');
+         showHideErrorMsg(e.target);
       }
    }
 }
