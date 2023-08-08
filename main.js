@@ -39,7 +39,7 @@ inputs.forEach((input) => {
 function showHideErrorMsg(target) {
    target.setAttribute('value', target.value);
    if (target.checkValidity()) {
-      target.nextElementSibling.style.visibility = 'hidden';
+      hideErrorMsg(target);
    } else {
       target.nextElementSibling.style.visibility = 'visible';
    }
@@ -47,7 +47,7 @@ function showHideErrorMsg(target) {
 }
 
 function hideErrorMsg(target) {
-   if (target.value) target.nextElementSibling.style.visibility = 'hidden';
+   target.nextElementSibling.style.visibility = 'hidden';
 }
 
 function validateSubmit(event) {
