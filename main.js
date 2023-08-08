@@ -10,10 +10,12 @@ let inputs = form.querySelectorAll('input');
 let reg = {
    'first-name': `[a-zA-Z]+`,
    'last-name': `[a-zA-Z]+`,
-   password: '(?=.*d)(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*',
+   'phone-num': `[0-9]{3}-?[0-9]{2}-?[0-9]{3}`,
+   password: '(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).*',
 };
 
 form.addEventListener('submit', validateSubmit);
+passConfirm.addEventListener('input', checkPasswordConfirm);
 password.addEventListener('input', checkPasswordConfirm);
 inputs.forEach((input) => {
    input.setAttribute('value', input.value);
@@ -24,8 +26,13 @@ inputs.forEach((input) => {
    input.addEventListener('input', (ev) => {
       showHideErrorMsg(ev.target);
    });
-   input.addEventListener('blur', (ev) => {
+
+   input.addEventListener('focus', (ev) => {
       showHideErrorMsg(ev.target);
+   });
+
+   input.addEventListener('blur', (ev) => {
+      hideErrorMsg(ev.target);
    });
 });
 
@@ -36,6 +43,11 @@ function showHideErrorMsg(target) {
    } else {
       target.nextElementSibling.style.visibility = 'visible';
    }
+   console.log(target.validity);
+}
+
+function hideErrorMsg(target) {
+   if (target.value) target.nextElementSibling.style.visibility = 'hidden';
 }
 
 function validateSubmit(event) {
@@ -45,26 +57,22 @@ function validateSubmit(event) {
       )
    ) {
       event.preventDefault();
-      alertOnSubmit();
+      inputs.forEach((input) => {
+         if (!input.checkValidity()) {
+            showHideErrorMsg(input);
+         }
+      });
    }
 }
 
-function alertOnSubmit() {
-   inputs.forEach((input) => {
-      if (!input.checkValidity()) {
-         showHideErrorMsg(input);
-      }
-   });
-}
-
-function checkPasswordConfirm(e) {
+function checkPasswordConfirm() {
    if (passConfirm.value !== '') {
       if (passConfirm.value !== password.value) {
          passConfirm.setCustomValidity('Passwords do not match');
-         showHideErrorMsg(e.target);
+         showHideErrorMsg(passConfirm);
       } else if (passConfirm.value === password.value) {
          passConfirm.setCustomValidity('');
-         showHideErrorMsg(e.target);
+         showHideErrorMsg(passConfirm);
       }
    }
 }
